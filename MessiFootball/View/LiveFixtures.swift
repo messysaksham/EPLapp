@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct LiveFixtures: View {
     
     @ObservedObject var livematch = Viewmodel()
     let url = BaseUrl.shared.getLiveFixturesUrl()
+    
+    let kfimage = KFimage()
     
     
     
@@ -38,9 +41,19 @@ struct LiveFixtures: View {
                                     
                                     if let hometeam = match.homeTeam {
                                         
+                                        VStack{
+                                            Text(hometeam.tla ?? "hometeam")
+                                            
+                                            
+                                        }
                                         
-                                        Text(hometeam.shortName ?? "hometeam")
+                                        if let imageURL = match.homeTeam?.crest{
+                                            
+                                            kfimage.getImage(url: imageURL)
+                                            
+                                        }
                                         
+                                    
                                     }
                                     
                                     
@@ -53,13 +66,17 @@ struct LiveFixtures: View {
                                         
                                     }
                                     
-                                    
+                                    if let imageURL = match.awayTeam?.crest{
+                                        
+                                        kfimage.getImage(url: imageURL)
+                                        
+                                    }
                                 
                                     
                                     if let awayteam = match.awayTeam {
                                         
                                         
-                                        Text(awayteam.shortName ?? "hometeam")
+                                        Text(awayteam.tla ?? "hometeam")
                                         
                                     }
                                     

@@ -39,7 +39,7 @@ struct TabbView: View {
                     .tabItem {
                         
                         Image(systemName: "play")
-                        Text("standings")
+                        Text("matches")
                     }.tag(1)
                   
             }

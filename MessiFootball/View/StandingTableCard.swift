@@ -15,7 +15,7 @@ struct StandingTableCard: View {
     @State private var crests : table?
     
     @State private var Isdetailscreen = false
-    
+    let kfimage = KFimage()
     let url = BaseUrl.shared.getStandingsUrl()
     
     init(){
@@ -101,14 +101,7 @@ struct StandingTableCard: View {
                                                                 
                                                                 if let crestURL = team.crest{
                                                                     
-                                                                    KFImage(URL(string: crestURL))
-                                                                        .resizable()
-                                                                        .frame(width: 30 ,height: 33)
-                                                                        .cornerRadius(.pi)
-                                                                    
-                                                                    
-                                                                    
-                                                                    
+                                                                    kfimage.getImage(url: crestURL)
                                                                     
                                                                 }else{
                                                                     Text("no way")

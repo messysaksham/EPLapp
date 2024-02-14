@@ -12,7 +12,7 @@ struct DetailViewStandings: View {
     @State var table : table?
 
     @ObservedObject var detailview = Viewmodel()
-
+    let kfimage = KFimage()
     let url = BaseUrl.shared.getStandingsUrl()
 
 
