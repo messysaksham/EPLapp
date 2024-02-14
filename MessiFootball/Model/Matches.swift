@@ -35,6 +35,24 @@ struct Match: Codable {
     let score: Score?
     let odds: Odds?
     let referees: [String]?
+    
+    var formattedUTCDate: String? {
+            guard let dateString = utcDate else {
+                return nil
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            
+            guard let date = dateFormatter.date(from: dateString) else {
+                return nil 
+            }
+            
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: date)
+        }
+
+
 }
 
 // MARK: - Area
@@ -89,3 +107,5 @@ struct ResultSet: Codable {
     let competitions, first, last: String?
     let played: Int?
 }
+
+

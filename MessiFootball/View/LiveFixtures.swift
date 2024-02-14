@@ -59,7 +59,7 @@ struct LiveFixtures: View {
                                     
                                     if match.status == "TIMED" {
                                         
-                                        Text("Yet to start")
+                                        Text(match.formattedUTCDate ?? "")
                                     }else{
                                         
                                         Text(match.status ?? "no match")
