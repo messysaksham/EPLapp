@@ -31,6 +31,13 @@ class BaseUrl {
     }
     
     
+    func getLiveFixturesUrl() -> URL {
+        
+        
+        return URL(string: "https://api.football-data.org/v4/matches")!
+        
+    }
+    
     
     func getXauthToken() -> String {
         

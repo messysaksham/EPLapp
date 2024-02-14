@@ -10,18 +10,80 @@ import SwiftUI
 struct LiveFixtures: View {
     
     @ObservedObject var livematch = Viewmodel()
-    let url = BaseUrl.shared.getStandingsUrl()
+    let url = BaseUrl.shared.getLiveFixturesUrl()
+    
+    
+    
+    init(){
+        
+        livematch.getLiveFixtures(url: url)
+        
+    }
+    
     var body: some View {
-        Button{
+        
+        NavigationView{
             
-            livematch.getLiveFixtures(url: url)
-            
-        }label: {
-            Text("press this button to get response")
+            ZStack{
+                
+                ScrollView(showsIndicators : false){
+                    
+                    VStack(alignment: .leading, spacing : 50){
+                        
+                        if let Match = livematch.LiveFixtures?.matches {
+                            
+                            ForEach(Match, id: \.id) { match in
+                                
+                                HStack(alignment: .top, spacing : 50){
+                                    
+                                    if let hometeam = match.homeTeam {
+                                        
+                                        
+                                        Text(hometeam.shortName ?? "hometeam")
+                                        
+                                    }
+                                    
+                                    
+                                    if match.status == "TIMED" {
+                                        
+                                        Text("Yet to start")
+                                    }else{
+                                        
+                                        Text(match.status ?? "no match")
+                                        
+                                    }
+                                    
+                                    
+                                
+                                    
+                                    if let awayteam = match.awayTeam {
+                                        
+                                        
+                                        Text(awayteam.shortName ?? "hometeam")
+                                        
+                                    }
+                                    
+                                }
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                    }.padding()
+                }
+            }.navigationTitle("Today's Fixtures")
         }
     }
 }
-
 #Preview {
     LiveFixtures()
 }
