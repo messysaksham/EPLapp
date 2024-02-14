@@ -2,27 +2,17 @@
 //  DetailViewStandings.swift
 //  MessiFootball
 //
-//  Created by Saksham on 13/02/24.
+//  Created by Saksham on 14/02/24.
 //
 
 import SwiftUI
 
 struct DetailViewStandings: View {
-    
-    @State var table : table?
-    
-    @ObservedObject var detailview = Viewmodel()
-    
-    let url = BaseUrl.shared.getStandingsUrl()
-    
-    
     var body: some View {
-        
-        
-        Text( table?.team?.shortName ?? "")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-//#Preview {
-//    DetailViewStandings(table: .)
-//}
+#Preview {
+    DetailViewStandings()
+}
