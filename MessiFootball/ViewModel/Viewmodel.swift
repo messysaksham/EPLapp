@@ -13,6 +13,7 @@ class Viewmodel : ObservableObject {
     
     @Published var footballmanager : FootballManager?
     @Published var Plstandings : PLStandings?
+    @Published var LiveFixtures : Matches?
     
     let Specialtoken  = BaseUrl.shared.getXauthToken()
     func getFootballData(url : URL){
@@ -87,7 +88,7 @@ class Viewmodel : ObservableObject {
                         DispatchQueue.main.async{
                             
                             self.Plstandings = decoder
-                            print("data inserted successfully bitches")
+                            
                             
                             
                             
@@ -106,5 +107,50 @@ class Viewmodel : ObservableObject {
         }
         
     }
+    
+    
+    func getLiveFixtures(url : URL){
+        
+        
+        AF.request(url,method: .get,headers: ["X-Auth-Token":Specialtoken,"Content-Type" : "application/json"]).responseJSON { response in
+            
+            switch response.result {
+                
+                
+            case .failure(let error):
+                
+                
+                print(error.localizedDescription)
+                
+            case .success(_):
+                
+                
+                
+                if let response = response.data {
+                    
+                    
+                    do{
+                        let decoder =  try? JSONDecoder().decode(Matches.self, from: response)
+                        
+                        DispatchQueue.main.async{
+                            
+                            self.LiveFixtures = decoder
+                            print("data inserted successfully")
+                        }
+                        
+                    }
+                    
+                    
+                }else
+                {
+                    print("no response was received from the server")
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     
 }

@@ -33,6 +33,14 @@ struct TabbView: View {
                         Image(systemName: "figure.australian.football")
                         Text("standings")
                     }.tag(1)
+                
+                
+                LiveFixtures()
+                    .tabItem {
+                        
+                        Image(systemName: "play")
+                        Text("standings")
+                    }.tag(1)
                   
             }
         }

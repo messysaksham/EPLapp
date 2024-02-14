@@ -22,6 +22,9 @@
 		4065E5882B79FB710052C921 /* PLStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5872B79FB710052C921 /* PLStandings.swift */; };
 		4065E58D2B7A027E0052C921 /* PlStandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E58C2B7A027E0052C921 /* PlStandingsView.swift */; };
 		4065E58F2B7A08090052C921 /* StandingTableCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E58E2B7A08090052C921 /* StandingTableCard.swift */; };
+		4065E5992B7CC3070052C921 /* DetailViewStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5982B7CC3070052C921 /* DetailViewStandings.swift */; };
+		4065E59B2B7CC3220052C921 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59A2B7CC3220052C921 /* Matches.swift */; };
+		4065E59D2B7CC3300052C921 /* LiveFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59C2B7CC3300052C921 /* LiveFixtures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		4065E5872B79FB710052C921 /* PLStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLStandings.swift; sourceTree = "<group>"; };
 		4065E58C2B7A027E0052C921 /* PlStandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlStandingsView.swift; sourceTree = "<group>"; };
 		4065E58E2B7A08090052C921 /* StandingTableCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingTableCard.swift; sourceTree = "<group>"; };
+		4065E5982B7CC3070052C921 /* DetailViewStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewStandings.swift; sourceTree = "<group>"; };
+		4065E59A2B7CC3220052C921 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
+		4065E59C2B7CC3300052C921 /* LiveFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFixtures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 				4065E5852B79F2BC0052C921 /* TabbView.swift */,
 				4065E58C2B7A027E0052C921 /* PlStandingsView.swift */,
 				4065E58E2B7A08090052C921 /* StandingTableCard.swift */,
+				4065E5982B7CC3070052C921 /* DetailViewStandings.swift */,
+				4065E59C2B7CC3300052C921 /* LiveFixtures.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 			children = (
 				4065E5742B74DB110052C921 /* FootballManager.swift */,
 				4065E5872B79FB710052C921 /* PLStandings.swift */,
+				4065E59A2B7CC3220052C921 /* Matches.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,12 +219,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4065E57F2B77A3980052C921 /* TeamArea.swift in Sources */,
+				4065E59B2B7CC3220052C921 /* Matches.swift in Sources */,
 				4065E5752B74DB110052C921 /* FootballManager.swift in Sources */,
+				4065E5992B7CC3070052C921 /* DetailViewStandings.swift in Sources */,
 				4065E5662B74DADF0052C921 /* ContentView.swift in Sources */,
 				4065E5882B79FB710052C921 /* PLStandings.swift in Sources */,
 				4065E58F2B7A08090052C921 /* StandingTableCard.swift in Sources */,
 				4065E5772B74DB3B0052C921 /* Viewmodel.swift in Sources */,
 				4065E5862B79F2BC0052C921 /* TabbView.swift in Sources */,
+				4065E59D2B7CC3300052C921 /* LiveFixtures.swift in Sources */,
 				4065E58D2B7A027E0052C921 /* PlStandingsView.swift in Sources */,
 				4065E5822B77AC2C0052C921 /* BaseUrl.swift in Sources */,
 				4065E5642B74DADF0052C921 /* MessiFootballApp.swift in Sources */,

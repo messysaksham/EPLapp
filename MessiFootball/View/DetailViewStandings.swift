@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct DetailViewStandings: View {
+
+    @State var table : table?
+
+    @ObservedObject var detailview = Viewmodel()
+
+    let url = BaseUrl.shared.getStandingsUrl()
+
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+
+        Text( table?.team?.shortName ?? "")
     }
 }
 
-#Preview {
-    DetailViewStandings()
-}
+//#Preview {
+//    DetailViewStandings(table: .)
+//}
