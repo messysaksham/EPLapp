@@ -9,15 +9,15 @@ import SwiftUI
 
 struct TabbView: View {
     
+    @State private var transition = false
     
     var body: some View {
         
    
             TabView {
                 
-                
-                
                 ContentView()
+                    .transition(.move(edge: .leading))
                     .tabItem {
                         
                         Image(systemName: "play.house")
@@ -33,10 +33,7 @@ struct TabbView: View {
                         Image(systemName: "figure.australian.football")
                         Text("standings")
                     }.tag(1)
-                
-                
-                
-                   
+                  
             }
         }
         

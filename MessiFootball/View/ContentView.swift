@@ -15,6 +15,8 @@ struct ContentView: View {
     
     @State  var   crestURLs : seasons?
     
+    
+    
     @State private var navigatetonextScreen = false
     
     let url  = BaseUrl.shared.getbaseurl()
@@ -41,25 +43,25 @@ struct ContentView: View {
                     
                 }else {
                     
-                    ScrollView(showsIndicators: false){
-                        VStack {
-                            
-                            Text(ronaldo.footballmanager?.name ?? "myboy")
-                                .font(.title2)
-                                .foregroundStyle(.white)
-                            
-                            
-                            
-                            if let ron = ronaldo.footballmanager {
+                        ScrollView(showsIndicators: false){
+                            VStack {
+                                
+                                Text(ronaldo.footballmanager?.name ?? "myboy")
+                                    .font(.title2)
+                                    .foregroundStyle(.white)
                                 
                                 
-                           
+                                
+                                if let ron = ronaldo.footballmanager {
+                                    
+                                    
+                                    
                                     
                                     ForEach(ron.seasons, id: \.id) {  season in
                                         
                                         
-                                       
-                                       
+                                        
+                                        
                                         
                                         HStack(spacing : 5){
                                             
@@ -104,19 +106,22 @@ struct ContentView: View {
                                         
                                         
                                     }
-                                
-                                NavigationLink(destination: TeamArea(Crest: crestURLs), isActive: $navigatetonextScreen){
-                                    EmptyView()
+                                    
+                                    NavigationLink(destination: TeamArea(Crest: crestURLs), isActive: $navigatetonextScreen){
+                                        EmptyView()
+                                        
+                                    }
                                     
                                 }
-                                    
-                            }
-                                    
-                                }.padding()
                                 
-                                
-                                
-                            }
+                            }.padding()
+                                .transition(.move(edge: .leading))
+                            
+                            
+                            
+                        }
+                        
+                    
                         }
                         
                         
