@@ -26,6 +26,8 @@
 		4065E59B2B7CC3220052C921 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59A2B7CC3220052C921 /* Matches.swift */; };
 		4065E59D2B7CC3300052C921 /* LiveFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59C2B7CC3300052C921 /* LiveFixtures.swift */; };
 		4065E59F2B7D0C350052C921 /* KFimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59E2B7D0C350052C921 /* KFimage.swift */; };
+		4065E5A32B7D2ED10052C921 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5A22B7D2ED10052C921 /* OAuthSwift */; };
+		4065E5A52B7D2EF60052C921 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5A42B7D2EF60052C921 /* EntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		4065E59A2B7CC3220052C921 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		4065E59C2B7CC3300052C921 /* LiveFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveFixtures.swift; sourceTree = "<group>"; };
 		4065E59E2B7D0C350052C921 /* KFimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFimage.swift; sourceTree = "<group>"; };
+		4065E5A02B7D2E8B0052C921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4065E5A42B7D2EF60052C921 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			files = (
 				4065E57D2B776FB00052C921 /* Kingfisher in Frameworks */,
 				4065E57A2B74DB890052C921 /* Alamofire in Frameworks */,
+				4065E5A32B7D2ED10052C921 /* OAuthSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +87,7 @@
 		4065E5622B74DADF0052C921 /* MessiFootball */ = {
 			isa = PBXGroup;
 			children = (
+				4065E5A02B7D2E8B0052C921 /* Info.plist */,
 				4065E5632B74DADF0052C921 /* MessiFootballApp.swift */,
 				4065E5802B77AC160052C921 /* Utilities */,
 				4065E5732B74DAFB0052C921 /* Model */,
@@ -114,6 +120,7 @@
 			children = (
 				4065E5652B74DADF0052C921 /* ContentView.swift */,
 				4065E57E2B77A3980052C921 /* TeamArea.swift */,
+				4065E5A42B7D2EF60052C921 /* EntryView.swift */,
 				4065E5852B79F2BC0052C921 /* TabbView.swift */,
 				4065E58C2B7A027E0052C921 /* PlStandingsView.swift */,
 				4065E58E2B7A08090052C921 /* StandingTableCard.swift */,
@@ -161,6 +168,7 @@
 			packageProductDependencies = (
 				4065E5792B74DB890052C921 /* Alamofire */,
 				4065E57C2B776FB00052C921 /* Kingfisher */,
+				4065E5A22B7D2ED10052C921 /* OAuthSwift */,
 			);
 			productName = MessiFootball;
 			productReference = 4065E5602B74DADF0052C921 /* MessiFootball.app */;
@@ -193,6 +201,7 @@
 			packageReferences = (
 				4065E5782B74DB890052C921 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4065E57B2B776FB00052C921 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = 4065E5612B74DADF0052C921 /* Products */;
 			projectDirPath = "";
@@ -223,6 +232,7 @@
 			files = (
 				4065E57F2B77A3980052C921 /* TeamArea.swift in Sources */,
 				4065E59B2B7CC3220052C921 /* Matches.swift in Sources */,
+				4065E5A52B7D2EF60052C921 /* EntryView.swift in Sources */,
 				4065E5752B74DB110052C921 /* FootballManager.swift in Sources */,
 				4065E5992B7CC3070052C921 /* DetailViewStandings.swift in Sources */,
 				4065E5662B74DADF0052C921 /* ContentView.swift in Sources */,
@@ -371,6 +381,7 @@
 				DEVELOPMENT_TEAM = 9GXM525799;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MessiFootball/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -401,6 +412,7 @@
 				DEVELOPMENT_TEAM = 9GXM525799;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MessiFootball/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +472,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -472,6 +492,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4065E57B2B776FB00052C921 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		4065E5A22B7D2ED10052C921 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

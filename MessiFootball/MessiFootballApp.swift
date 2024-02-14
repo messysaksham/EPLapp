@@ -11,7 +11,7 @@ import SwiftUI
 struct MessiFootballApp: App {
     var body: some Scene {
         WindowGroup {
-           TabbView()
+           EntryView()
         }
     }
 }

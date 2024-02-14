@@ -122,9 +122,9 @@ class Viewmodel : ObservableObject {
                 
                 print(error.localizedDescription)
                 
-            case .success(_):
+            case .success(let value):
                 
-                
+                print (value)
                 
                 if let response = response.data {
                     

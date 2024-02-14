@@ -44,7 +44,6 @@ struct LiveFixtures: View {
                                         VStack{
                                             Text(hometeam.tla ?? "hometeam")
                                             
-                                            
                                         }
                                         
                                         if let imageURL = match.homeTeam?.crest{
@@ -85,16 +84,8 @@ struct LiveFixtures: View {
                                 
                             }
                             
-                            
-                            
-                            
                         }
-                        
-                        
-                        
-                        
-                        
-                        
+                       
                     }.padding()
                 }
             }.navigationTitle("Today's Fixtures")

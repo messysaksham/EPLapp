@@ -40,7 +40,7 @@ struct TabbView: View {
                         
                         Image(systemName: "play")
                         Text("matches")
-                    }.tag(1)
+                    }.tag(3)
                   
             }
         }
