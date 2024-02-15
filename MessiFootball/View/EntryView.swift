@@ -12,22 +12,33 @@ import OAuthSwift
 struct EntryView: View {
     
     
-    @State var isauthorized = false
+    @State var  isauthorized = false
+   @State var tabselect = 1
     let url = URL(string: "https://cdn.freelogovectors.net/wp-content/uploads/2023/04/premier-league-logo-01-freelogovectors.net_.png")
     
     
     let oauthswift = OAuth2Swift(consumerKey: "1a43b6eca6543260ddd9", consumerSecret: "f7a721a5ac0648d6a6aa17f7a20c1feefd928f46", authorizeUrl:"https://github.com/login/oauth/authorize", accessTokenUrl: "https://github.com/login/oauth/access_token", responseType: "code")
     
     var body: some View {
-        VStack(spacing : 70){
+        
+        
+        if isauthorized{
+            
+            TabbView(selectionvalue: $tabselect)
             
             
-            if isauthorized{
-                NavigationLink(destination: ContentView(), isActive: $isauthorized){
-                    
-                    EmptyView()
-                }
-            }else{
+        }else{
+            
+            
+            
+            
+            
+            
+            VStack(spacing : 70){
+                
+                
+                
+                
                 
                 KFImage(url)
                     .resizable()
@@ -52,13 +63,13 @@ struct EntryView: View {
                     print("url received :",url)
                     
                     OAuthSwift.handle(url: url)
+                    self.isauthorized = true
                     
                 })
                 
-                
             }
-            
         }
+        
     }
     
     func OauthAuthentication() {

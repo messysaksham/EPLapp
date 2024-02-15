@@ -10,6 +10,9 @@ import Kingfisher
 
 struct TeamArea: View {
     
+    
+ 
+    
     let Crest : seasons?
     @State private var viewappear = true
     

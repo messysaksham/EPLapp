@@ -9,12 +9,12 @@ import SwiftUI
 
 struct TabbView: View {
     
-    @State private var transition = false
+    @Binding var selectionvalue : Int
     
     var body: some View {
         
    
-            TabView {
+        TabView(selection : $selectionvalue) {
                 
                 ContentView()
                     .transition(.move(edge: .leading))
@@ -49,5 +49,5 @@ struct TabbView: View {
 }
 
 #Preview {
-    TabbView()
+    TabbView(selectionvalue: .constant(1))
 }
