@@ -22,13 +22,10 @@ struct EntryView: View {
     var body: some View {
         
         
-        if isauthorized{
-            
-            TabbView(selectionvalue: $tabselect)
-            
-            
+      
+        if isauthorized {
+            TabbView()
         }else{
-            
             
             
             
