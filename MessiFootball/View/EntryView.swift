@@ -8,35 +8,42 @@
 import SwiftUI
 import Kingfisher
 import OAuthSwift
+import KeychainAccess
 
 struct EntryView: View {
     
+    private var consumer = KeychainEx()
     
     @State var  isauthorized = false
-   @State var tabselect = 1
+    @State var tabselect = 1
     let url = URL(string: "https://cdn.freelogovectors.net/wp-content/uploads/2023/04/premier-league-logo-01-freelogovectors.net_.png")
     
     
-    let oauthswift = OAuth2Swift(consumerKey: "1a43b6eca6543260ddd9", consumerSecret: "f7a721a5ac0648d6a6aa17f7a20c1feefd928f46", authorizeUrl:"https://github.com/login/oauth/authorize", accessTokenUrl: "https://github.com/login/oauth/access_token", responseType: "code")
+    private let consumersecrettt : String
+   let consumerkey = "1a43b6eca6543260ddd9"
+
+        private let oauthswift: OAuth2Swift
+
+        init() {
+            self.consumersecrettt = consumer.retrievefromKeychain() ?? "nodata"
+            self.oauthswift = OAuth2Swift(consumerKey:consumerkey,
+                                          consumerSecret: consumersecrettt,
+                                          authorizeUrl: "https://github.com/login/oauth/authorize",
+                                          accessTokenUrl: "https://github.com/login/oauth/access_token",
+                                          responseType: "code")
+        }
+
     
     var body: some View {
         
         
       
         if isauthorized {
-            TabbView()
+            SlideView()
         }else{
-            
-            
-            
-            
-            
+           
             VStack(spacing : 70){
-                
-                
-                
-                
-                
+               
                 KFImage(url)
                     .resizable()
                     .cacheMemoryOnly()

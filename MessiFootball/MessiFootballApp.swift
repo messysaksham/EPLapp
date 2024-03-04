@@ -9,6 +9,14 @@ import SwiftUI
 
 @main
 struct MessiFootballApp: App {
+    let keychain = KeychainEx()
+    
+    init(){
+        
+        keychain.savetokeychainXauth()
+        keychain.savetokeychain()
+        
+    }
     var body: some Scene {
         WindowGroup {
             EntryView()

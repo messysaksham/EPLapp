@@ -28,6 +28,11 @@
 		4065E59F2B7D0C350052C921 /* KFimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E59E2B7D0C350052C921 /* KFimage.swift */; };
 		4065E5A32B7D2ED10052C921 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5A22B7D2ED10052C921 /* OAuthSwift */; };
 		4065E5A52B7D2EF60052C921 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5A42B7D2EF60052C921 /* EntryView.swift */; };
+		4065E5A92B7E36CE0052C921 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5A82B7E36CE0052C921 /* LoginView.swift */; };
+		4065E5AC2B95BD410052C921 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5AB2B95BD410052C921 /* SlidingTabView */; };
+		4065E5AE2B95BD670052C921 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5AD2B95BD670052C921 /* SlideView.swift */; };
+		4065E5B32B9666570052C921 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5B22B9666570052C921 /* KeychainAccess */; };
+		4065E5B52B966C6E0052C921 /* KeychainEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B42B966C6E0052C921 /* KeychainEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,9 @@
 		4065E59E2B7D0C350052C921 /* KFimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFimage.swift; sourceTree = "<group>"; };
 		4065E5A02B7D2E8B0052C921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4065E5A42B7D2EF60052C921 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		4065E5A82B7E36CE0052C921 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4065E5AD2B95BD670052C921 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
+		4065E5B42B966C6E0052C921 /* KeychainEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +68,9 @@
 			files = (
 				4065E57D2B776FB00052C921 /* Kingfisher in Frameworks */,
 				4065E57A2B74DB890052C921 /* Alamofire in Frameworks */,
+				4065E5AC2B95BD410052C921 /* SlidingTabView in Frameworks */,
 				4065E5A32B7D2ED10052C921 /* OAuthSwift in Frameworks */,
+				4065E5B32B9666570052C921 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +130,14 @@
 			children = (
 				4065E5652B74DADF0052C921 /* ContentView.swift */,
 				4065E57E2B77A3980052C921 /* TeamArea.swift */,
+				4065E5AD2B95BD670052C921 /* SlideView.swift */,
 				4065E5A42B7D2EF60052C921 /* EntryView.swift */,
 				4065E5852B79F2BC0052C921 /* TabbView.swift */,
 				4065E58C2B7A027E0052C921 /* PlStandingsView.swift */,
 				4065E58E2B7A08090052C921 /* StandingTableCard.swift */,
 				4065E5982B7CC3070052C921 /* DetailViewStandings.swift */,
 				4065E59C2B7CC3300052C921 /* LiveFixtures.swift */,
+				4065E5A82B7E36CE0052C921 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4065E5812B77AC2C0052C921 /* BaseUrl.swift */,
+				4065E5B42B966C6E0052C921 /* KeychainEx.swift */,
 				4065E59E2B7D0C350052C921 /* KFimage.swift */,
 			);
 			path = Utilities;
@@ -169,6 +182,8 @@
 				4065E5792B74DB890052C921 /* Alamofire */,
 				4065E57C2B776FB00052C921 /* Kingfisher */,
 				4065E5A22B7D2ED10052C921 /* OAuthSwift */,
+				4065E5AB2B95BD410052C921 /* SlidingTabView */,
+				4065E5B22B9666570052C921 /* KeychainAccess */,
 			);
 			productName = MessiFootball;
 			productReference = 4065E5602B74DADF0052C921 /* MessiFootball.app */;
@@ -202,6 +217,8 @@
 				4065E5782B74DB890052C921 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4065E57B2B776FB00052C921 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+				4065E5AA2B95BD400052C921 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
+				4065E5B12B9666570052C921 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 4065E5612B74DADF0052C921 /* Products */;
 			projectDirPath = "";
@@ -231,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4065E57F2B77A3980052C921 /* TeamArea.swift in Sources */,
+				4065E5AE2B95BD670052C921 /* SlideView.swift in Sources */,
 				4065E59B2B7CC3220052C921 /* Matches.swift in Sources */,
 				4065E5A52B7D2EF60052C921 /* EntryView.swift in Sources */,
 				4065E5752B74DB110052C921 /* FootballManager.swift in Sources */,
@@ -240,10 +258,12 @@
 				4065E58F2B7A08090052C921 /* StandingTableCard.swift in Sources */,
 				4065E5772B74DB3B0052C921 /* Viewmodel.swift in Sources */,
 				4065E5862B79F2BC0052C921 /* TabbView.swift in Sources */,
+				4065E5B52B966C6E0052C921 /* KeychainEx.swift in Sources */,
 				4065E59D2B7CC3300052C921 /* LiveFixtures.swift in Sources */,
 				4065E58D2B7A027E0052C921 /* PlStandingsView.swift in Sources */,
 				4065E5822B77AC2C0052C921 /* BaseUrl.swift in Sources */,
 				4065E59F2B7D0C350052C921 /* KFimage.swift in Sources */,
+				4065E5A92B7E36CE0052C921 /* LoginView.swift in Sources */,
 				4065E5642B74DADF0052C921 /* MessiFootballApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MessiFootball/Preview Content\"";
@@ -395,6 +416,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.new.MessiFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -406,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MessiFootball/Preview Content\"";
@@ -426,6 +449,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.new.MessiFootball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -480,6 +504,22 @@
 				minimumVersion = 2.2.0;
 			};
 		};
+		4065E5AA2B95BD400052C921 /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		4065E5B12B9666570052C921 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -497,6 +537,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
 			productName = OAuthSwift;
+		};
+		4065E5AB2B95BD410052C921 /* SlidingTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4065E5AA2B95BD400052C921 /* XCRemoteSwiftPackageReference "SlidingTabView" */;
+			productName = SlidingTabView;
+		};
+		4065E5B22B9666570052C921 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4065E5B12B9666570052C921 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -15,7 +15,10 @@ class Viewmodel : ObservableObject {
     @Published var Plstandings : PLStandings?
     @Published var LiveFixtures : Matches?
     
-    let Specialtoken  = BaseUrl.shared.getXauthToken()
+    
+    
+    
+    let Specialtoken  = KeychainEx().retrievefromkeychainXauth() ?? "nodata"
     func getFootballData(url : URL){
         
         

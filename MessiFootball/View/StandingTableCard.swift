@@ -28,7 +28,7 @@ struct StandingTableCard: View {
     var body: some View {
         
         
-        NavigationView{
+    
             
             ZStack{
                 
@@ -174,7 +174,7 @@ struct StandingTableCard: View {
                 }
             }
             
-        }
+        
     }
 }
 

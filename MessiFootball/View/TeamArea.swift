@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Kingfisher
-
+import MapKit
 struct TeamArea: View {
     
     
@@ -20,70 +20,80 @@ struct TeamArea: View {
     
     var body: some View {
         ZStack{
-            VStack(alignment: .leading){
-                
-                
-                AsyncImage(url: URL(string: Crest?.winner?.crest ?? "")){ image in
-                    
-                    switch image {
-                        
-                    case .failure :
-                        ProgressView()
-                        
-                    case .success(let image) :
+            ScrollView{
+                VStack(spacing : 20){
+                    VStack(alignment: .leading){
                         
                         
-                        VStack{
+                        AsyncImage(url: URL(string: Crest?.winner?.crest ?? "")){ image in
                             
-                            image
-                                .resizable()
-                                .frame(width : 150 , height: 150)
-                                .cornerRadius(.infinity)
-                                .padding()
-                           
-                            
-                            if      let  founded = Crest?.winner?.founded{
+                            switch image {
                                 
-                                Text("Founded in : \(String(format : "%d",founded))")
-                                    .font(.headline)
+                            case .failure :
+                                ProgressView()
                                 
-                            }
-                            
-                            if  let  website = Crest?.winner?.website {
+                            case .success(let image) :
                                 
-                                Text("Website: \(website)")
-                                    .font(.callout)
+                                
+                                VStack{
                                     
-                            }
-                            if let venue = Crest?.winner?.venue{
-                                
-                                
-                                Text("Venue: \(venue)")
-                                    .font(.callout)
-                                    .italic()
+                                    image
+                                        .resizable()
+                                        .frame(width : 150 , height: 150)
+                                        .cornerRadius(.infinity)
+                                        .padding()
                                     
+                                    
+                                    if      let  founded = Crest?.winner?.founded{
+                                        
+                                        Text("Founded in : \(String(format : "%d",founded))")
+                                            .font(.headline)
+                                        
+                                    }
+                                    
+                                    if  let  website = Crest?.winner?.website {
+                                        
+                                        Text("Website: \(website)")
+                                            .font(.callout)
+                                        
+                                    }
+                                    if let venue = Crest?.winner?.venue{
+                                        
+                                        
+                                        Text("Venue: \(venue)")
+                                            .font(.callout)
+                                            .italic()
+                                        
+                                    }
+                                    
+                                }
+                                .frame(width: 240,height: 625)
+                                .edgesIgnoringSafeArea(.all)
+                                
+                                Spacer()
+                                
+                                
+                            case .empty:
+                                
+                                ProgressView()
+                                
+                                
+                            @unknown default:
+                                Text("This is a unknown error")
                             }
-                          
+                            
                         }
-                        .frame(width: 240,height: 400)
-                        .edgesIgnoringSafeArea(.all)
                         
-                        Spacer()
-                        
-                        
-                    case .empty:
-                        
-                      ProgressView()
-                        
-                        
-                    @unknown default:
-                        Text("This is a unknown error")
                     }
                     
+                    
+                    VStack{
+                        Map()
+                    }.frame(width:500,height: 400)
+                        .padding()
+                    
                 }
-             
             }
-            
         }   .edgesIgnoringSafeArea(.all)
             
     }
