@@ -10,40 +10,42 @@ import Kingfisher
 import OAuthSwift
 import KeychainAccess
 
+
 struct EntryView: View {
     
     private var consumer = KeychainEx()
+    private var userinfo = Viewmodel()
     
     @State var  isauthorized = false
-    @State var tabselect = 1
+    
     let url = URL(string: "https://cdn.freelogovectors.net/wp-content/uploads/2023/04/premier-league-logo-01-freelogovectors.net_.png")
     
     
     private let consumersecrettt : String
-   let consumerkey = "1a43b6eca6543260ddd9"
-
-        private let oauthswift: OAuth2Swift
-
-        init() {
-            self.consumersecrettt = consumer.retrievefromKeychain() ?? "nodata"
-            self.oauthswift = OAuth2Swift(consumerKey:consumerkey,
-                                          consumerSecret: consumersecrettt,
-                                          authorizeUrl: "https://github.com/login/oauth/authorize",
-                                          accessTokenUrl: "https://github.com/login/oauth/access_token",
-                                          responseType: "code")
-        }
-
+    private let consumerkey = "1a43b6eca6543260ddd9"
+    
+    private let oauthswift: OAuth2Swift
+    
+    init() {
+        self.consumersecrettt = consumer.retrievefromKeychain() ?? "nodata"
+        self.oauthswift = OAuth2Swift(consumerKey:consumerkey,
+                                      consumerSecret: consumersecrettt,
+                                      authorizeUrl: "https://github.com/login/oauth/authorize",
+                                      accessTokenUrl: "https://github.com/login/oauth/access_token",
+                                      responseType: "code")
+    }
+    
     
     var body: some View {
         
         
-      
+        
         if isauthorized {
             SlideView()
         }else{
-           
+            
             VStack(spacing : 70){
-               
+                
                 KFImage(url)
                     .resizable()
                     .cacheMemoryOnly()
@@ -92,22 +94,20 @@ struct EntryView: View {
                 
             case .success(let(credential,response,parameter)):
                 
-                print(credential.oauthToken)
+                let authtoken = credential.oauthToken
+                
+                print (authtoken)
+                
                 
                 self.isauthorized = true
-               
+                userinfo.FetchGithubUserInfo(auth: authtoken)
                 
             case .failure(let error):
                 print("oauth authentication failed \(error.localizedDescription)")
             }
             
-            
         }
-        
-        
-        
     }
-    
     
     
     

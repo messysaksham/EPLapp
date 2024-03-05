@@ -25,7 +25,7 @@ struct LiveFixtures: View {
     
     var body: some View {
         
-        NavigationView{
+        
             
             ZStack{
                 
@@ -89,7 +89,7 @@ struct LiveFixtures: View {
                     }.padding()
                 }
             }.navigationTitle("Today's Fixtures")
-        }
+        
     }
 }
 #Preview {

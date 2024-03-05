@@ -14,9 +14,7 @@ class Viewmodel : ObservableObject {
     @Published var footballmanager : FootballManager?
     @Published var Plstandings : PLStandings?
     @Published var LiveFixtures : Matches?
-    
-    
-    
+    @Published var user : User?
     
     let Specialtoken  = KeychainEx().retrievefromkeychainXauth() ?? "nodata"
     func getFootballData(url : URL){
@@ -92,9 +90,6 @@ class Viewmodel : ObservableObject {
                             
                             self.Plstandings = decoder
                             
-                            
-                            
-                            
                         }
                         
                     }
@@ -164,6 +159,55 @@ class Viewmodel : ObservableObject {
                 return dateFormatter.date(from: date)
             }
         
+    
+    
+    func FetchGithubUserInfo(auth  : String){
+        
+        
+        let url = URL(string: "https://api.github.com/user")!
+
+        AF.request(url,method: .get,headers: ["Authorization":"Bearer \(auth)","Content-Type" : "application/json"]).responseJSON { response in
+            
+            switch response.result {
+                
+                
+            case .failure(let error):
+                
+                
+                print(error.localizedDescription)
+                
+            case .success(_):
+                
+                
+                
+                if let response = response.data {
+                    
+                    
+                    do{
+                        let decoder =  try? JSONDecoder().decode(User.self, from: response)
+                        
+                        DispatchQueue.main.async{
+                            
+                            self.user = decoder
+                            print("got user details")
+                            print (self.user?.login)
+                            print (self.user?.avatar_url)
+                        }
+                        
+                    }
+                    
+                    
+                }else
+                {
+                    print("no response was received from the server")
+                }
+                
+            }
+            
+        }
+            
+    }
+   
         
         
     }

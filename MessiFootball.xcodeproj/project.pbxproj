@@ -33,6 +33,7 @@
 		4065E5AE2B95BD670052C921 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5AD2B95BD670052C921 /* SlideView.swift */; };
 		4065E5B32B9666570052C921 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5B22B9666570052C921 /* KeychainAccess */; };
 		4065E5B52B966C6E0052C921 /* KeychainEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B42B966C6E0052C921 /* KeychainEx.swift */; };
+		4065E5B72B972B830052C921 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B62B972B830052C921 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		4065E5A82B7E36CE0052C921 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4065E5AD2B95BD670052C921 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		4065E5B42B966C6E0052C921 /* KeychainEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainEx.swift; sourceTree = "<group>"; };
+		4065E5B62B972B830052C921 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				4065E5742B74DB110052C921 /* FootballManager.swift */,
 				4065E5872B79FB710052C921 /* PLStandings.swift */,
+				4065E5B62B972B830052C921 /* User.swift */,
 				4065E59A2B7CC3220052C921 /* Matches.swift */,
 			);
 			path = Model;
@@ -265,6 +268,7 @@
 				4065E59F2B7D0C350052C921 /* KFimage.swift in Sources */,
 				4065E5A92B7E36CE0052C921 /* LoginView.swift in Sources */,
 				4065E5642B74DADF0052C921 /* MessiFootballApp.swift in Sources */,
+				4065E5B72B972B830052C921 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

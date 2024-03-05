@@ -20,13 +20,14 @@ struct ContentView: View {
     @State private var navigatetonextScreen = false
     
     let url  = BaseUrl.shared.getbaseurl()
-    
+    let keychain = KeychainEx()
     
     @ObservedObject var ronaldo = Viewmodel()
     
     init(){
         
         ronaldo.getFootballData(url: url)
+        
     }
     
     

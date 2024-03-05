@@ -10,13 +10,8 @@ import Kingfisher
 import MapKit
 struct TeamArea: View {
     
-    
- 
-    
     let Crest : seasons?
     @State private var viewappear = true
-    
-    
     
     var body: some View {
         ZStack{

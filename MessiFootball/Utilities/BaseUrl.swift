@@ -37,14 +37,7 @@ class BaseUrl {
         return URL(string: "https://api.football-data.org/v4/matches")!
         
     }
-    
-    
-    func getXauthToken() -> String {
-        
-        return "1eee530843624940afb10aefdfa44a9c"
-        
-    }
-    
+   
 }
 
 
