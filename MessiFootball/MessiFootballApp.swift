@@ -11,6 +11,8 @@ import SwiftUI
 struct MessiFootballApp: App {
     let keychain = KeychainEx()
     
+    @StateObject  var viewmodel = Viewmodel.shared
+    
     init(){
         
         keychain.savetokeychainXauth()
@@ -20,6 +22,9 @@ struct MessiFootballApp: App {
     var body: some Scene {
         WindowGroup {
             EntryView()
+                .environmentObject(viewmodel)
+                
+           
         }
     }
 }

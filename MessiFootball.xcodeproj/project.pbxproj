@@ -34,6 +34,8 @@
 		4065E5B32B9666570052C921 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5B22B9666570052C921 /* KeychainAccess */; };
 		4065E5B52B966C6E0052C921 /* KeychainEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B42B966C6E0052C921 /* KeychainEx.swift */; };
 		4065E5B72B972B830052C921 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B62B972B830052C921 /* User.swift */; };
+		4065E5B92B9781C50052C921 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5B82B9781C50052C921 /* SideMenu.swift */; };
+		4065E5BC2B978E710052C921 /* SideMenuKitSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4065E5BB2B978E710052C921 /* SideMenuKitSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,7 @@
 		4065E5AD2B95BD670052C921 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		4065E5B42B966C6E0052C921 /* KeychainEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainEx.swift; sourceTree = "<group>"; };
 		4065E5B62B972B830052C921 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4065E5B82B9781C50052C921 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4065E57D2B776FB00052C921 /* Kingfisher in Frameworks */,
+				4065E5BC2B978E710052C921 /* SideMenuKitSwiftUI in Frameworks */,
 				4065E57A2B74DB890052C921 /* Alamofire in Frameworks */,
 				4065E5AC2B95BD410052C921 /* SlidingTabView in Frameworks */,
 				4065E5A32B7D2ED10052C921 /* OAuthSwift in Frameworks */,
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				4065E5652B74DADF0052C921 /* ContentView.swift */,
+				4065E5B82B9781C50052C921 /* SideMenu.swift */,
 				4065E57E2B77A3980052C921 /* TeamArea.swift */,
 				4065E5AD2B95BD670052C921 /* SlideView.swift */,
 				4065E5A42B7D2EF60052C921 /* EntryView.swift */,
@@ -187,6 +192,7 @@
 				4065E5A22B7D2ED10052C921 /* OAuthSwift */,
 				4065E5AB2B95BD410052C921 /* SlidingTabView */,
 				4065E5B22B9666570052C921 /* KeychainAccess */,
+				4065E5BB2B978E710052C921 /* SideMenuKitSwiftUI */,
 			);
 			productName = MessiFootball;
 			productReference = 4065E5602B74DADF0052C921 /* MessiFootball.app */;
@@ -222,6 +228,7 @@
 				4065E5A12B7D2ED10052C921 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 				4065E5AA2B95BD400052C921 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				4065E5B12B9666570052C921 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				4065E5BA2B978E700052C921 /* XCRemoteSwiftPackageReference "SideMenuKitSwiftUI" */,
 			);
 			productRefGroup = 4065E5612B74DADF0052C921 /* Products */;
 			projectDirPath = "";
@@ -257,6 +264,7 @@
 				4065E5752B74DB110052C921 /* FootballManager.swift in Sources */,
 				4065E5992B7CC3070052C921 /* DetailViewStandings.swift in Sources */,
 				4065E5662B74DADF0052C921 /* ContentView.swift in Sources */,
+				4065E5B92B9781C50052C921 /* SideMenu.swift in Sources */,
 				4065E5882B79FB710052C921 /* PLStandings.swift in Sources */,
 				4065E58F2B7A08090052C921 /* StandingTableCard.swift in Sources */,
 				4065E5772B74DB3B0052C921 /* Viewmodel.swift in Sources */,
@@ -524,6 +532,14 @@
 				kind = branch;
 			};
 		};
+		4065E5BA2B978E700052C921 /* XCRemoteSwiftPackageReference "SideMenuKitSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/magickworx/SideMenuKitSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -551,6 +567,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4065E5B12B9666570052C921 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		4065E5BB2B978E710052C921 /* SideMenuKitSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4065E5BA2B978E700052C921 /* XCRemoteSwiftPackageReference "SideMenuKitSwiftUI" */;
+			productName = SideMenuKitSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

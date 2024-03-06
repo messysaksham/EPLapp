@@ -14,7 +14,7 @@ import KeychainAccess
 struct EntryView: View {
     
     private var consumer = KeychainEx()
-    private var userinfo = Viewmodel()
+    @EnvironmentObject var userinfo : Viewmodel
     
     @State var  isauthorized = false
     
@@ -41,7 +41,7 @@ struct EntryView: View {
         
         
         if isauthorized {
-            SlideView()
+            SideMenu()
         }else{
             
             VStack(spacing : 70){

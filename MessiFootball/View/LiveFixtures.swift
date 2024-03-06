@@ -84,6 +84,15 @@ struct LiveFixtures: View {
                                 
                             }
                             
+                        }else{
+                            Spacer()
+                            Spacer()
+                            VStack(alignment : .center){
+                                Spacer()
+                                Text("There are no matches for today")
+                                Text("Come Back Tommorow")
+                                    .bold()
+                            }
                         }
                        
                     }.padding()

@@ -11,10 +11,15 @@ import Kingfisher
 
 class Viewmodel : ObservableObject {
     
+    static let shared = Viewmodel()
+    
     @Published var footballmanager : FootballManager?
     @Published var Plstandings : PLStandings?
     @Published var LiveFixtures : Matches?
     @Published var user : User?
+    
+    
+
     
     let Specialtoken  = KeychainEx().retrievefromkeychainXauth() ?? "nodata"
     func getFootballData(url : URL){
@@ -187,12 +192,14 @@ class Viewmodel : ObservableObject {
                         let decoder =  try? JSONDecoder().decode(User.self, from: response)
                         
                         DispatchQueue.main.async{
-                            
+                          
                             self.user = decoder
-                            print("got user details")
-                            print (self.user?.login)
-                            print (self.user?.avatar_url)
+                            print(self.user?.login)
+                            print(self.user?.avatar_url)
+                            
+                            
                         }
+                       
                         
                     }
                     

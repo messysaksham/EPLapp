@@ -14,6 +14,8 @@ struct SlideView: View {
     @State private var dumbell = 0
     
     var body: some View {
+        
+    
         VStack(alignment : .center){
             SlidingTabView(selection: $dumbell, tabs: ["EPL","LALIGA","SERIA"], font: .caption2, animation: .easeInOut, activeAccentColor: .purple, inactiveAccentColor: .black, selectionBarColor: .clear, inactiveTabColor: .clear, activeTabColor: .white, selectionBarHeight: .pi, selectionBarBackgroundColor: .clear, selectionBarBackgroundHeight: .pi)
            
