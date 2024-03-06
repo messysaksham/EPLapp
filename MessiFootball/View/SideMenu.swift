@@ -14,6 +14,9 @@ struct SideMenu : View {
    
     let kfimage = KFimage()
     
+    
+    
+    
     var body: some View {
         ZStack {
             
@@ -21,10 +24,11 @@ struct SideMenu : View {
             
         VStack (alignment :.leading){
                 
-                
+            
                 Button(action: {
                     withAnimation {
                         self.isMenuOpen.toggle()
+                        
                         
                     }
                 }) {
@@ -38,14 +42,21 @@ struct SideMenu : View {
             
                 
                 VStack(spacing: 20) {
-                    kfimage.getImage(url: users.user?.avatar_url ?? "")
+                    
                     
                     Text("Welcome")
                         .foregroundColor(.white)
-                    Text(users.user?.login ?? "" )
+                        .font(.title)
+                        
+                    Spacer()
+                    
+                    kfimage.getImage(url: users.user?.avatar_url ?? "")
+                    
+                    
+                    Text(users.user?.login ?? "rrrr" )
                         .font(.footnote)
                         .foregroundColor(.white)
-                    
+                    Spacer()
                     Button(action: {
                         
                     }) {

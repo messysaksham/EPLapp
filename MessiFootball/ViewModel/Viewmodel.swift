@@ -53,7 +53,6 @@ class Viewmodel : ObservableObject {
                         
                     }
                     
-                    
                 }else
                 {
                     print("no response was received from the server")
@@ -191,11 +190,13 @@ class Viewmodel : ObservableObject {
                     do{
                         let decoder =  try? JSONDecoder().decode(User.self, from: response)
                         
-                        DispatchQueue.main.async{
+                        DispatchQueue.main.async{ [self] in
                           
                             self.user = decoder
                             print(self.user?.login)
                             print(self.user?.avatar_url)
+                            self.Newuser(username: self.user?.login ?? "yoo", avatar: user?.avatar_url ?? "yo")
+                            
                             
                             
                         }
@@ -214,10 +215,47 @@ class Viewmodel : ObservableObject {
         }
             
     }
-   
+    
+    
+    
+    func Newuser(username :  String , avatar : String){
+        
+        
+        let parameters : [String: String] = [
+                    
+                    "name" : username,
+                    "avatar" : avatar,
+                   
+                ]
+                
+                
+                AF.request("http://localhost:3000/users",method:.post,parameters: parameters ,encoder:  JSONParameterEncoder.default ,headers: ["Content-Type": "application/json"]).responseJSON{response in
+                    
+                    
+                    switch response.result {
+                        
+                    case .success(_) :
+                        
+                        print("successfully received response")
+                        
+                    case.failure(let error) :
+                        print(error.localizedDescription)
+                        
+                    }
+                    
+                    
+                    
+                }
+            }
+        
+        
         
         
     }
+   
+        
+        
+    
     
     
 

@@ -41,7 +41,11 @@ struct EntryView: View {
         
         
         if isauthorized {
+            
             SideMenu()
+                
+                
+            
         }else{
             
             VStack(spacing : 70){
@@ -58,7 +62,7 @@ struct EntryView: View {
                     
                     
                 }label: {
-                    Text("Login")
+                    Text("Login with Github")
                         .frame(width:200,height: 35)
                         .foregroundStyle(.white)
                         .background(.black)
@@ -115,4 +119,5 @@ struct EntryView: View {
 
 #Preview {
     EntryView()
+        
 }
