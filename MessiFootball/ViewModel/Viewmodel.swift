@@ -17,6 +17,8 @@ class Viewmodel : ObservableObject {
     @Published var Plstandings : PLStandings?
     @Published var LiveFixtures : Matches?
     @Published var user : User?
+    @Published var username : String?
+    @Published var Email :  String?
     
     
 
@@ -64,9 +66,6 @@ class Viewmodel : ObservableObject {
         
     }
     
-    
-    
-    
     func getPLStandings(url : URL){
         
         
@@ -107,9 +106,7 @@ class Viewmodel : ObservableObject {
             }
             
         }
-        
     }
-    
     
     func getLiveFixtures(url : URL){
         
@@ -142,7 +139,6 @@ class Viewmodel : ObservableObject {
                         
                     }
                     
-                    
                 }else
                 {
                     print("no response was received from the server")
@@ -153,8 +149,6 @@ class Viewmodel : ObservableObject {
         }
         
     }
-    
-    
     
     func dateFormatter(date : String) -> Date? {
         
@@ -162,63 +156,14 @@ class Viewmodel : ObservableObject {
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                 return dateFormatter.date(from: date)
             }
-        
-    
-    
-    func FetchGithubUserInfo(auth  : String){
-        
-        
-        let url = URL(string: "https://api.github.com/user")!
-
-        AF.request(url,method: .get,headers: ["Authorization":"Bearer \(auth)","Content-Type" : "application/json"]).responseJSON { response in
-            
-            switch response.result {
-                
-                
-            case .failure(let error):
-                
-                
-                print(error.localizedDescription)
-                
-            case .success(_):
-                
-                
-                
-                if let response = response.data {
-                    
-                    
-                    do{
-                        let decoder =  try? JSONDecoder().decode(User.self, from: response)
-                        
-                        DispatchQueue.main.async{ [self] in
-                          
-                            self.user = decoder
-                            print(self.user?.login)
-                            print(self.user?.avatar_url)
-                            self.Newuser(username: self.user?.login ?? "yoo", avatar: user?.avatar_url ?? "yo")
-                            
-                            
-                            
-                        }
-                       
-                        
-                    }
-                    
-                    
-                }else
-                {
-                    print("no response was received from the server")
-                }
-                
-            }
-            
-        }
-            
-    }
-    
-    
-    
+      
     func Newuser(username :  String , avatar : String){
+        
+      
+        
+       
+        UserDefaults.standard.set(username, forKey: "username")
+        UserDefaults.standard.set(avatar   , forKey: "email")
         
         
         let parameters : [String: String] = [
@@ -243,14 +188,9 @@ class Viewmodel : ObservableObject {
                         
                     }
                     
-                    
-                    
                 }
             }
-        
-        
-        
-        
+         
     }
    
         

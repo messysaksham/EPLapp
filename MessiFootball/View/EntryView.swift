@@ -7,40 +7,30 @@
 
 import SwiftUI
 import Kingfisher
-import OAuthSwift
 import KeychainAccess
+import GoogleSignIn
+import Firebase
+import FirebaseAuth
+
 
 
 struct EntryView: View {
     
-    private var consumer = KeychainEx()
+    @State private  var username = ""
+    @State private  var email = ""
     @EnvironmentObject var userinfo : Viewmodel
     
     @State var  isauthorized = false
     
     let url = URL(string: "https://cdn.freelogovectors.net/wp-content/uploads/2023/04/premier-league-logo-01-freelogovectors.net_.png")
     
-    
-    private let consumersecrettt : String
-    private let consumerkey = "1a43b6eca6543260ddd9"
-    
-    private let oauthswift: OAuth2Swift
-    
-    init() {
-        self.consumersecrettt = consumer.retrievefromKeychain() ?? "nodata"
-        self.oauthswift = OAuth2Swift(consumerKey:consumerkey,
-                                      consumerSecret: consumersecrettt,
-                                      authorizeUrl: "https://github.com/login/oauth/authorize",
-                                      accessTokenUrl: "https://github.com/login/oauth/access_token",
-                                      responseType: "code")
-    }
-    
+  
     
     var body: some View {
         
         
         
-        if isauthorized {
+        if isauthorized || Auth.auth().currentUser != nil  {
             
             SideMenu()
                 
@@ -58,62 +48,62 @@ struct EntryView: View {
                 
                 Button{
                     
-                    OauthAuthentication()
+                    guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+                            
+                    let config = GIDConfiguration(clientID: clientID)
+
+                    GIDSignIn.sharedInstance.configuration = config
+                            
+                    GIDSignIn.sharedInstance.signIn(withPresenting: getRootViewController()) { signResult, error in
+                                
+                        if let error = error {
+                           
+                           return
+                        }
+                                
+                         guard let user = signResult?.user,
+                               let idToken = user.idToken else { return }
+                         
+                         let accessToken = user.accessToken
+                                
+                         let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
+
+                        // Use the credential to authenticate with Firebase
+                        Auth.auth().signIn(with: credential) { result, error in
+                            
+                          
+                            
+                            
+                            if let user = Auth.auth().currentUser {
+                                
+                                print("successfully signed in ")
+                                
+                                self.username = user.displayName ?? ""
+                                
+                                self.email = user.email ?? ""
+                               
+                                userinfo.Newuser(username: username, avatar: email)
+                                isauthorized = true
+                            }
+                            
+                        }
+                    }
+
                     
                     
                 }label: {
-                    Text("Login with Github")
+                    Text("Login with Google")
                         .frame(width:200,height: 35)
                         .foregroundStyle(.white)
                         .background(.black)
                     
-                    
-                }.onOpenURL(perform: { url in
-                    
-                    print("url received :",url)
-                    
-                    OAuthSwift.handle(url: url)
-                    self.isauthorized = true
-                    
-                })
+                }
                 
             }
         }
         
     }
-    
-    func OauthAuthentication() {
-        
-        if let rootviewcontroller = UIApplication.shared.windows.first?.rootViewController {
-            
-            self.oauthswift.authorizeURLHandler = SafariURLHandler(viewController: rootviewcontroller , oauthSwift: oauthswift)
-        }
-        
-        
-        
-        self.oauthswift.authorize(withCallbackURL: "myapps://callback", scope: "user", state: "random_state") { result in
-            
-            
-            switch result {
-                
-            case .success(let(credential,response,parameter)):
-                
-                let authtoken = credential.oauthToken
-                
-                print (authtoken)
-                
-                
-                self.isauthorized = true
-                userinfo.FetchGithubUserInfo(auth: authtoken)
-                
-            case .failure(let error):
-                print("oauth authentication failed \(error.localizedDescription)")
-            }
-            
-        }
-    }
-    
-    
+     
     
 }
 

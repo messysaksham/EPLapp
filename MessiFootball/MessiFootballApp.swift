@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+
 
 @main
 struct MessiFootballApp: App {
@@ -19,6 +22,8 @@ struct MessiFootballApp: App {
         keychain.savetokeychain()
         
     }
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             EntryView()
