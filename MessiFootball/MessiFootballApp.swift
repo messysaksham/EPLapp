@@ -26,7 +26,7 @@ struct MessiFootballApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            EntryView()
+           EntryView()
                 .environmentObject(viewmodel)
                 
            

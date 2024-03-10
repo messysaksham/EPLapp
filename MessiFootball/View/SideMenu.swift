@@ -1,9 +1,3 @@
-//
-//  SideMenu.swift
-//  MessiFootball
-//
-//  Created by Saksham on 05/03/24.
-//
 
 import SwiftUI
 import FirebaseAuth
@@ -11,113 +5,66 @@ import FirebaseAuth
 
 struct SideMenu : View {
     @State private var isMenuOpen = false
-    @State private var isloggedin = true
     @EnvironmentObject var users : Viewmodel
+    @State private var isShowingLogoutAlert = false
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var islogggedout : Bool
     
-   
-    let kfimage = KFimage()
-    
-    
-   private  let username = UserDefaults.standard.string(forKey: "username")
- private  let email = UserDefaults.standard.string(forKey: "email")
+    private  let username = UserDefaults.standard.string(forKey: "username")
+    private  let email = UserDefaults.standard.string(forKey: "email")
     
     var body: some View {
-      
-       
-        ZStack {
-            
-            if !isloggedin{
-                EntryView()
-                    .transition(.opacity)
+        
+            NavigationView {
+                VStack(alignment: .leading) {
+                    Text(username ?? "unknown")
+                        .font(.title)
+                        .padding(.bottom, 20)
                     
-            }else{
-                
-                VStack (alignment :.leading){
+                    Text(email ?? "unknown")
+                        .padding(.bottom, 10)
                     
                     
                     Button(action: {
-                        withAnimation {
-                            self.isMenuOpen.toggle()
-                            
-                            
-                        }
-                    }) {
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
+                        isShowingLogoutAlert = true
                         
                     }
-                    
-                    .offset(x: isMenuOpen ? UIScreen.main.bounds.width / 2 : 0)
-                    .animation(.default)
-                    
-                    
-                    VStack(spacing: 20) {
-                        
-                        
-                        Text("Welcome")
-                            .foregroundColor(.white)
-                            .font(.title)
-                        
-                        Spacer()
-                        
-                        Text(username ?? "")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .padding()
-                        Text(email ?? "ttt")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .padding()
-                        Spacer()
-                        Button(action: {
-                            
-                        }) {
-                            Text("EPL")
-                                .foregroundColor(.white)
-                        }
-                        Button(action: {
+                    ) {
+                        Text("Logout")
+                            .foregroundColor(.red)
+                    }
+                    .alert(isPresented: $isShowingLogoutAlert) {
+                        Alert(title: Text("Logout"), message: Text("Are you sure you want to logout?"), primaryButton: .default(Text("Yes")) {
                             do {
                                 try Auth.auth().signOut()
-                                isloggedin = false
                                 print ("successfully signed out")
+                                
+                                users.isloggedin = false
+                                self.islogggedout = true
+                                
                             } catch let signOutError as NSError {
-                                // An error occurred while signing out
+                                
                                 print("Error signing out: \(signOutError.localizedDescription)")
                             }
-                            isMenuOpen = false
-                        }) {
-                            Text("Log Out")
-                                .foregroundColor(.white)
-                                .padding()
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                            
-                        }
+                            presentationMode.wrappedValue.dismiss()
+                           
+                        }, secondaryButton: .cancel())
                         
-                        
-                        Divider()
                     }
-                    .padding()
                     
-                    
-                    .frame(maxWidth:.infinity, maxHeight:.infinity, alignment: .leading)
-                    
-                    .background(Color.cyan)
-                    .offset(x: isMenuOpen ? -120 : -UIScreen.main.bounds.width)
-                    .animation(.default)
-                    
-                    
-                }.padding()
-            }}
+                    Spacer()
+                }
+                .padding()
+                .navigationTitle("Account Info")
+            }
         }
-}
-
+    }
 
 struct SideMenu_Previews: PreviewProvider {
     static var previews: some View {
         
         let mockViewModel = Viewmodel()
-        return SideMenu()
-            .environmentObject(mockViewModel) 
+        return SideMenu( islogggedout: .constant(true))
+            .environmentObject(mockViewModel)
     }
 }

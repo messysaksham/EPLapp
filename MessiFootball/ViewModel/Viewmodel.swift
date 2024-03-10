@@ -17,13 +17,11 @@ class Viewmodel : ObservableObject {
     @Published var Plstandings : PLStandings?
     @Published var LiveFixtures : Matches?
     @Published var user : User?
-    @Published var username : String?
-    @Published var Email :  String?
+    @Published var isloggedin = false
     
-    
-
     
     let Specialtoken  = KeychainEx().retrievefromkeychainXauth() ?? "nodata"
+    
     func getFootballData(url : URL){
         
         
