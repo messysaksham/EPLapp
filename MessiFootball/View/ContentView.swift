@@ -12,11 +12,7 @@ import Kingfisher
 struct ContentView: View {
     
     @State private var Isloading = true
-    
     @State  var   crestURLs : seasons?
-    
-    
-    
     @State private var navigatetonextScreen = false
     
     let url  = BaseUrl.shared.getbaseurl()

@@ -14,7 +14,7 @@ struct MainEntryView: View {
     @State private var isShowSideMenu = false
     @State private var isloggedout = false
     @StateObject private var userinfo = Viewmodel()
-    @State private var babe = false
+    @State private var log = false
     
     var body: some View {
         if isloggedout{
@@ -76,7 +76,7 @@ struct MainEntryView: View {
             .navigationViewStyle(StackNavigationViewStyle()) // To prevent iPad-style navigation
             .sheet(isPresented: $isShowSideMenu)
             {
-                SideMenu(islogggedout: $babe)
+                SideMenu(islogggedout: $log)
                 
             }
         }

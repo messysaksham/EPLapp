@@ -12,7 +12,7 @@ import KeychainAccess
 class KeychainEx{
     
     let keychain = Keychain(service: "dev.new.MessiFootball")
-    let keychains = Keychain(service: "dev.new.MessiFootball")
+    
     func savetokeychain(){
         
         
@@ -23,10 +23,6 @@ class KeychainEx{
             print("Error saving consumer secret to Keychain: \(error)")
         }
     }
-    
-    
-    
-    
     
     func retrievefromKeychain() -> String? {
         
@@ -40,16 +36,11 @@ class KeychainEx{
         }
     }
     
-    
-    
-    
-    
-    
     func savetokeychainXauth(){
        
         
         do {
-            try keychains.set("1eee530843624940afb10aefdfa44a9c", key: "xauth")
+            try keychain.set("1eee530843624940afb10aefdfa44a9c", key: "xauth")
             print("api saved to Keychain")
         } catch let error {
             print("Error saving consumer secret to Keychain: \(error)")
@@ -61,7 +52,7 @@ class KeychainEx{
         
         
         do {
-            let secret = try keychains.get("xauth")
+            let secret = try keychain.get("xauth")
             return secret
         } catch let error {
             print("Error retrieving consumer secret from Keychain: \(error)")
