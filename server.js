@@ -34,7 +34,7 @@ app.post('/users/send-email', (req, res) => {
   dynamic_template_data: {
     subject: subject,
       text: content,
-    // other dynamic data...
+    
   },
       
   };
@@ -76,19 +76,69 @@ app.post('/users', (req, res) => {
 
   console.log(name);
   console.log(avatar);
-  db.run(
-    "INSERT INTO users (username, avatar_url) SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM users WHERE username = ? and avatar_url = ?)",
-    [name, avatar, name, avatar],
-    function (err) {
+
+
+  const query = `SELECT * FROM users WHERE avatar_url = ?`;
+    db.get(query, [avatar], (err, row) => {
         if (err) {
-            console.error(err.message);
-           
-        } else {
-            console.log("User inserted successfully");
-            
+            console.error('Error querying database:', err);
+            res.status(500).send('Error querying database');
+            return;
         }
-    }
-);
+        
+        if (row) {
+            // User already exists
+            console.log('User already exists');
+            
+        } else {
+           
+            const insertQuery = `INSERT INTO users (username, avatar_url) VALUES (?, ?)`;
+            db.run(insertQuery, [name, avatar], (err) => {
+                if (err) {
+                    console.error('Error inserting user:', err);
+                    
+                } else {
+                
+                
+                
+                  console.log('User registered successfully');
+                    
+                }
+
+                
+  sgMail.setApiKey('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')
+  const msg = {
+      to: avatar,
+      from: 'sakshammishra615@gmail.com', 
+      templateId: 'd-b00dc189647d41a28e8b942b42624c83',
+  dynamic_template_data: {
+    subject: "Welcome to the Ultimate Football App",
+      text: "Welcome {name} to the app and enjoy",
+    
+  },
+  
+  };
+
+  sgMail
+      .send(msg)
+      .then(() => {
+          console.log('Email sent');
+          
+      })
+      .catch((error) => {
+          console.error(error);
+          
+      });
+
+    
+
+
+
+            });
+        }
+    });
+  
+  
   });
 
 
@@ -212,4 +262,3 @@ app.post('/users', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}/`);
 });
-
