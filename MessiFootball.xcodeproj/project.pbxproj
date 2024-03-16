@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4029EE162BA63218000486C8 /* RegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029EE152BA63218000486C8 /* RegistrationForm.swift */; };
+		4029EE182BA63252000486C8 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029EE172BA63252000486C8 /* RegistrationView.swift */; };
+		4029EE1A2BA63CCF000486C8 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4029EE192BA63CCF000486C8 /* ResetPasswordView.swift */; };
 		4065E5642B74DADF0052C921 /* MessiFootballApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5632B74DADF0052C921 /* MessiFootballApp.swift */; };
 		4065E5662B74DADF0052C921 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4065E5652B74DADF0052C921 /* ContentView.swift */; };
 		4065E5682B74DAE00052C921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4065E5672B74DAE00052C921 /* Assets.xcassets */; };
@@ -75,6 +78,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4029EE152BA63218000486C8 /* RegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationForm.swift; sourceTree = "<group>"; };
+		4029EE172BA63252000486C8 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		4029EE192BA63CCF000486C8 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		4065E5602B74DADF0052C921 /* MessiFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessiFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4065E5632B74DADF0052C921 /* MessiFootballApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessiFootballApp.swift; sourceTree = "<group>"; };
 		4065E5652B74DADF0052C921 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				4065E5762B74DB3B0052C921 /* Viewmodel.swift */,
+				4029EE152BA63218000486C8 /* RegistrationForm.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +219,8 @@
 				4065E5652B74DADF0052C921 /* ContentView.swift */,
 				4065E5B82B9781C50052C921 /* SideMenu.swift */,
 				4095A9722B9D08A2003E3979 /* LoginPageView.swift */,
+				4029EE192BA63CCF000486C8 /* ResetPasswordView.swift */,
+				4029EE172BA63252000486C8 /* RegistrationView.swift */,
 				4095A94F2B9B8F7E003E3979 /* MainEntryView.swift */,
 				4065E57E2B77A3980052C921 /* TeamArea.swift */,
 				4065E5AD2B95BD670052C921 /* SlideView.swift */,
@@ -370,6 +379,8 @@
 				4065E57F2B77A3980052C921 /* TeamArea.swift in Sources */,
 				4095A9502B9B8F7E003E3979 /* MainEntryView.swift in Sources */,
 				4065E5AE2B95BD670052C921 /* SlideView.swift in Sources */,
+				4029EE1A2BA63CCF000486C8 /* ResetPasswordView.swift in Sources */,
+				4029EE182BA63252000486C8 /* RegistrationView.swift in Sources */,
 				4065E59B2B7CC3220052C921 /* Matches.swift in Sources */,
 				4065E5A52B7D2EF60052C921 /* EntryView.swift in Sources */,
 				4065E5752B74DB110052C921 /* FootballManager.swift in Sources */,
@@ -384,6 +395,7 @@
 				4065E5B52B966C6E0052C921 /* KeychainEx.swift in Sources */,
 				4065E59D2B7CC3300052C921 /* LiveFixtures.swift in Sources */,
 				4065E58D2B7A027E0052C921 /* PlStandingsView.swift in Sources */,
+				4029EE162BA63218000486C8 /* RegistrationForm.swift in Sources */,
 				4065E5822B77AC2C0052C921 /* BaseUrl.swift in Sources */,
 				4065E59F2B7D0C350052C921 /* KFimage.swift in Sources */,
 				4065E5A92B7E36CE0052C921 /* LoginView.swift in Sources */,

@@ -13,7 +13,11 @@ struct LoginPageView: View {
     
     @State private  var username = ""
     @State private  var email = ""
+    @State private var Email = ""
+    @State private var Password = ""
     @EnvironmentObject var userinfo : Viewmodel
+    @State private var isSignup = false
+    @State private var forgotpass = false
     
     var renderLogo: some View {
         VStack(spacing: 0){
@@ -35,8 +39,9 @@ struct LoginPageView: View {
                 .font(.system(size: 16))
                 .fontWeight(.bold)
                 .padding(.bottom,8)
-            TextField("", text: .constant("redxor@gmail.com"))
+            TextField("", text: $Email)
                 .foregroundColor(Color(hex: "#181725"))
+                .textInputAutocapitalization(.never)
                 .font(.system(size: 18))
                 .frame(height: 22)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,10 +62,12 @@ struct LoginPageView: View {
         VStack(alignment: .leading, spacing: 0){
             Text("Password")
                 .foregroundColor(Color(hex: "#7C7C7C"))
+                .textInputAutocapitalization(.never)
                 .font(.system(size: 16))
                 .fontWeight(.bold)
                 .padding(.bottom,8)
-            TextField("", text: .constant("*************"))
+                
+            TextField("", text:$Password)
                 .foregroundColor(Color(hex: "#181725"))
                 .font(.system(size: 18))
                 .frame(height: 22)
@@ -77,6 +84,35 @@ struct LoginPageView: View {
         .frame(height: 67)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical,16)
+    }
+    
+    var LoginWithEmail: some View {
+        VStack(spacing: 0){
+            Spacer()
+            Button{
+                
+                Auth.auth().signIn(withEmail: self.Email    , password: self.Password) { (authResult, error) in
+                    if let error = error {
+                        
+                        print("Failed to sign in with email/password:", error.localizedDescription)
+                    } else {
+                        userinfo.isloggedin = true
+                        print("Successfully logged in with email/password")
+                    }
+                }
+                
+            }label: {
+                Text("LOGIN With Email")
+            }.foregroundColor(Color(hex: "#FFF9FF"))
+                .font(.system(size: 18))
+                .fontWeight(.bold)
+            Spacer()
+        }
+        .frame(height: 65)
+        .frame(maxWidth: .infinity,alignment: .center)
+        .background(Color(hex: "#53B175"))
+        .cornerRadius(20)
+        .padding(.vertical,20)
     }
     
     var renderButtonLogin: some View {
@@ -140,13 +176,20 @@ struct LoginPageView: View {
         .padding(.vertical,20)
     }
     
+    
+    
     var renderCanSignup: some View {
         HStack(spacing: 0){
             Spacer()
             Text("Don’t have an account?")
                 .foregroundColor(Color(hex: "#181725"))
                 .font(.system(size: 14))
-            Button(action: {}){
+            Button{
+                
+                self.isSignup = true
+                
+                
+            }label: {
                 Text("Signup")
                     .foregroundColor(Color(hex: "#53B175"))
                     .font(.system(size: 14))
@@ -162,52 +205,90 @@ struct LoginPageView: View {
         if userinfo.isloggedin {
             MainEntryView()
         }else{
-            VStack(alignment: .leading, spacing: 0){
-                ZStack{
-                    URLImage(URL(string: "https://raw.githubusercontent.com/coredxor/images/main/bk_login.png")!) { image in
-                        image
-                            .resizable()
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    
-                    VStack(alignment: .leading, spacing: 0){
-                        Group {
-                            renderLogo
-                            Text("Login")
-                                .foregroundColor(Color(hex: "#181725"))
-                                .font(.system(size: 26))
-                                .fontWeight(.bold)
-                            Text("Enter your email and password")
-                                .foregroundColor(Color(hex: "#7C7C7C"))
-                                .font(.system(size: 16))
-                                .padding(.vertical,20)
-                            renderEmail
-                            renderPassword
-                            
-                            HStack(spacing: 0){
-                                VStack(spacing: 0){}
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                Button(action: {}){
-                                    Text("Forgot Password?")
-                                        .foregroundColor(Color(hex: "#181725"))
-                                        .font(.system(size: 14))
-                                }
-                            }
-                            .frame(height: 14)
-                            .frame(maxWidth: .infinity)
-                            renderButtonLogin
-                            renderCanSignup
-                            Spacer()
+            
+            NavigationView {
+                VStack(alignment: .leading, spacing: 0){
+                    ZStack{
+                        URLImage(URL(string: "https://raw.githubusercontent.com/coredxor/images/main/bk_login.png")!) { image in
+                            image
+                                .resizable()
                         }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                        
+                        VStack(alignment: .leading, spacing: 0){
+                            Group {
+                                renderLogo
+                                Text("Login")
+                                    .foregroundColor(Color(hex: "#181725"))
+                                    .font(.system(size: 26))
+                                    .fontWeight(.bold)
+                                Text("Enter your email and password")
+                                    .foregroundColor(Color(hex: "#7C7C7C"))
+                                    .font(.system(size: 16))
+                                    .padding(.vertical,20)
+                                renderEmail
+                                renderPassword
+                                
+                                HStack(spacing: 0){
+                                    VStack(spacing: 0){}
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    Button(action: {
+                                        
+                                        self.forgotpass = true
+                                        
+                                    }){
+                                        Text("Forgot Password?")
+                                            .foregroundColor(Color(hex: "#181725"))
+                                            .font(.system(size: 14))
+                                    }
+                                }
+                                .frame(height: 14)
+                                .frame(maxWidth: .infinity)
+                                LoginWithEmail
+                                renderButtonLogin
+                                renderCanSignup
+                                
+                                Spacer()
+                            }
+                        }
+                        .padding(20)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                        
+                        if isSignup {
+                                            NavigationLink(
+                                                destination: RegistrationView()
+                                                    ,
+                                                isActive: $isSignup
+                                            ) {
+                                                EmptyView()
+                                            }
+                                            .animation(.default)
+                                             .transition(.slide)
+                                            
+                            
+                                            
+                                        }
+                        if forgotpass {
+                                            NavigationLink(
+                                                destination: 
+                                                    ResetPasswordView() ,
+                                                isActive: $forgotpass
+                                            ) {
+                                                EmptyView()
+                                            }
+                                            .animation(.default)
+                                             .transition(.slide)
+                                            
+                            
+                                            
+                                        }
                     }
-                    .padding(20)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 }
-            }
-            .padding(.top,0.1)
-            .padding(.bottom,0.1)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .padding(.top,0.1)
+                .padding(.bottom,0.1)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color(hex: "#FFFFFF"))
+            }
         }
     }
 }

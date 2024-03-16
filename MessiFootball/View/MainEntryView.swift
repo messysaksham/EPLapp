@@ -1,9 +1,4 @@
-//
-//  MainEntryView.swift
-//  MessiFootball
-//
-//  Created by Saksham on 08/03/24.
-//
+
 
 import SwiftUI
 
@@ -73,7 +68,7 @@ struct MainEntryView: View {
                 
                 
             }
-            .navigationViewStyle(StackNavigationViewStyle()) // To prevent iPad-style navigation
+            .navigationViewStyle(StackNavigationViewStyle())
             .sheet(isPresented: $isShowSideMenu)
             {
                 SideMenu(islogggedout: $log)

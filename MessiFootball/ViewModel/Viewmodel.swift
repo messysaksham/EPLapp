@@ -1,9 +1,4 @@
-//
-//  Viewmodel.swift
-//  MessiFootball
-//
-//  Created by Saksham on 08/02/24.
-//
+
 
 import Foundation
 import Alamofire
