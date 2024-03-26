@@ -1,5 +1,4 @@
 
-
 import SwiftUI
 import Kingfisher
 import KeychainAccess
@@ -67,7 +66,7 @@ struct LoginPageView: View {
                 .fontWeight(.bold)
                 .padding(.bottom,8)
                 
-            TextField("", text:$Password)
+            SecureField("Password", text: $Password)
                 .foregroundColor(Color(hex: "#181725"))
                 .font(.system(size: 18))
                 .frame(height: 22)
@@ -163,7 +162,7 @@ struct LoginPageView: View {
                 
                 
             }label: {
-                Text("LOGIN")
+                Text("Login with Google")
             }.foregroundColor(Color(hex: "#FFF9FF"))
                 .font(.system(size: 18))
                 .fontWeight(.bold)

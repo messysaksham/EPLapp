@@ -11,8 +11,6 @@ struct PLStandings: Codable {
 }
 
 
-
-
 struct competition: Codable {
     let id: Int?
     let name, code, type: String?

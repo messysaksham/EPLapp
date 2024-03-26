@@ -13,9 +13,6 @@ struct RegistrationView: View {
     @StateObject private var firebaseManager = RegistrationForm()
   
     
-    
-   
-        
         var body: some View {
             
             VStack {

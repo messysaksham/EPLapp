@@ -13,7 +13,6 @@ struct PlStandingsView: View {
     
     let url  = BaseUrl.shared.getStandingsUrl()
     
-    
     init(){
           standings.getPLStandings(url: url)
     }
